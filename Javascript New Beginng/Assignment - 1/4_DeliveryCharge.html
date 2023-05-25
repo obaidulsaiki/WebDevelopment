@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAiki</title>
+    <style>
+      p {
+        text-align: center;
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Write a JavaScript code that prompts the user to enter their city. If it
+      is not Dhaka than show output “Delivery Charge 120 Taka” else Delivery
+      Charge 60 Taka.
+    </p>
+    <script>
+      let CIty_Name = prompt("What is your city: ");
+      if (CIty_Name == "Dhaka") {
+        alert("Delivery Charge 60 Taka.");
+        console.log("Delivery Charge 60 Taka");
+      } else {
+        alert("Delivery Charge 120 Taka.");
+        console.log("Delivery Charge 120 Taka");
+      }
+    </script>
+  </body>
+</html>

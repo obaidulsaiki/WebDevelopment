@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAiki</title>
+    <style>
+      p {
+        text-align: center;
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Write a JavaScript code that prompts the user to enter their assignment
+      marks. If it is 100 than show output “Excellent”, if it is more than 70
+      than output “Good” else “Need Improvement”.
+    </p>
+    <script>
+      let Assigment_Mark = prompt("what is your assignment mark :");
+      if (Assigment_Mark == 100) {
+        alert("Excellent");
+        console.log("Excellent");
+      } else if (Assigment_Mark >= 70) {
+        alert("Good");
+        console.log("Good");
+      } else {
+        alert("Need Improvement");
+        console.log("Need Improvement");
+      }
+    </script>
+  </body>
+</html>
