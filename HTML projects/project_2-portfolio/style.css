@@ -1,0 +1,67 @@
+#Myc {
+  background-color: rgb(169, 123, 67);
+}
+.boxmanually {
+  background-color: cadetblue;
+  padding: 10px;
+  margin-top: -40px;
+  text-align: center;
+}
+.Manualborder {
+  padding-left: 20px;
+  border-left: 4px solid paleturquoise;
+}
+.manualdot {
+  padding-left: 20px;
+  border-left: 4px solid blue;
+}
+#Bordergap {
+  padding: 20px;
+  border-width: 20px;
+}
+.CDontcare {
+  background-color: rgb(36, 116, 170);
+  max-width: 100%;
+  min-width: 0%;
+  width: 85%;
+}
+.CpDontcare {
+  background-color: rgb(14, 70, 107);
+  max-width: 100%;
+  min-width: 0%;
+  width: 90%;
+}
+.MDontcare {
+  background-color: rgb(202, 80, 19);
+  max-width: 100%;
+  min-width: 0%;
+  width: 90%;
+}
+.HDontcare {
+  background-color: rgb(225, 202, 27);
+  max-width: 100%;
+  min-width: 0%;
+  width: 85%;
+}
+.CssDontcare {
+  background-color: rgb(26, 154, 28);
+  max-width: 100%;
+  min-width: 0%;
+  width: 85%;
+}
+.CanvaDontcare {
+  background-color: grey;
+  max-width: 100%;
+  min-width: 0%;
+  width: 70%;
+}
+.imagecontainer {
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  column-gap: 30px;
+}
+.columnGap
+{
+  column-gap: 2rem;
+}

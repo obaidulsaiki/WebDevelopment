@@ -1,0 +1,126 @@
+:root {
+  --color-ing: #92e3a9;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+.container {
+  width: 80%;
+  margin: auto;
+}
+.Section-1 {
+  display: flex;
+  align-items: center;
+}
+.border {
+  border-left: 4px solid var(--color-ing);
+  font-size: 50px;
+}
+img {
+  width: 100%;
+}
+.Fontstyle {
+  color: var(--color-ing);
+}
+p {
+  text-align: justify;
+}
+.button {
+  background-color: var(--color-ing);
+  padding: 5px 4px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.Center {
+  text-align: center;
+  font-size: 40px;
+}
+h2 {
+  text-align: center;
+  font-size: 50px;
+}
+.card-container {
+  display: flex;
+  column-gap: 15px;
+}
+.card {
+  background-color: var(--color-ing);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px rgb(255, 255, 255);
+  padding: 2px;
+  text-align: center;
+}
+.card p {
+  text-align: center;
+  font-size: medium;
+}
+.card img {
+  width: 80%;
+  filter: drop-shadow(2px 2px 5px rgb(105, 98, 98));
+}
+.Section-3 .part1 {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  margin-top: 30px;
+  column-gap: 30px;
+}
+.Section-3 .part1 .left {
+  width: 60%;
+}
+.Section-3 .part1 .right {
+  width: 70%;
+}
+.Section-3 .part2 {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  margin-top: 30px;
+  column-gap: 10px;
+}
+.Section-3 .part2 .left {
+  width: 80%;
+}
+.Section-3 .part2 .right {
+  width: 50%;
+}
+.section4 {
+  align-items: center;
+}
+.section4 .pad {
+  text-align: center;
+  font-size: 40px;
+  background-color: aquamarine;
+  padding: 4px 3px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.section4 .container {
+  display: flex;
+  column-gap: 60px;
+}
+.section4 .container .left {
+  width: 90%;
+}
+.section4 .container .right {
+  width: 90%;
+}
+.section4 .container h3 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+.section4 .container p {
+  text-align: center;
+}
+footer {
+  align-items: center;
+  background-color: rgb(212, 212, 238);
+  height: auto;
+  padding-bottom: 40px;
+}
+footer p {
+  text-align: center;
+}
