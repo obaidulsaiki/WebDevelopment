@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bugichugi 1</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">
+      Write a JavaScript code that generates a multiplication table for the user
+      inserted number (use prompt and typecasting) using a loop in JavaScript.
+      [20 Marks]
+    </h1>
+    <script>
+      let number = parseFloat(prompt("Input Number : "));
+      console.log("Multiplication table of " + number + "is : ");
+      for (let i = 1; i <= 10; i++) {
+        console.log(i + " * " + number + " = " + number * i);
+      }
+    </script>
+  </body>
+</html>

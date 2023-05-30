@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">
+      Write a JavaScript code that asks the user to insert his name and find the
+      length of the name and how many small letters and capital letters are
+      there. [10+5+5 Marks]
+    </h1>
+    <script>
+      let name = prompt("What is your name: ");
+      let cnt = 0;
+      let fnt = 0;
+      console.log("length: ", name.length);
+      for (let i = 0; i < name.length; i++) {
+        if (name[i] >= "A" && name[i] <= "Z") {
+          cnt++;
+        } else if (name[i] >= "a" && name[i] <= "z") {
+          fnt++;
+        }
+      }
+      console.log("The number of small letters: ", fnt);
+      console.log("The number of capital letters: ", cnt);
+    </script>
+  </body>
+</html>

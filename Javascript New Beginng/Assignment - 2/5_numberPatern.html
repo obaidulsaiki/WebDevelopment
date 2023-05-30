@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="text-align: justify">
+      Write a JavaScript code that prints the following pattern: - <br />
+      1<br />
+      1 2<br />
+      1 2 3<br />
+      1 2 3 4<br />
+      1 2 3 4 5<br />
+      <script>
+        let n = parseFloat(prompt("Enter the Number: "));
+        let container = "\n";
+        for (let i = 1; i <= n; i++) {
+          for (let j = 1; j <= i; j++) {
+            container += j + " ";
+          }
+          container += "\n";
+        }
+        console.log(container);
+      </script>
+    </h1>
+  </body>
+</html>

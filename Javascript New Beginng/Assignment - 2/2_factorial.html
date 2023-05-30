@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">
+      Write a JavaScript code that takes user input (use prompt and typecasting)
+      and calculat12 es the factorial of a number using a loop in JavaScript.
+      [20 Marks]
+    </h1>
+    <script>
+      let number = parseFloat(prompt("Enter the number: "));
+      let fact = 1;
+      for (let i = number; i > 0; i--) {
+        fact *= i;
+      }
+      console.log("The factorial of the Number is : ", fact);
+    </script>
+  </body>
+</html>
