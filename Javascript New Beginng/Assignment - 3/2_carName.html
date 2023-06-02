@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>
+      Write an object for a Car that has name and at least 2 other properties.
+      At least 1 property should be a function that outputs the name of the Car.
+    </h1>
+    <script>
+      const Car = {
+        Name: "Toyota",
+        price: 250000,
+        full_detailes: function () {
+          return "Name of the car is " + this.Name;
+        },
+      };
+      console.log(Car.full_detailes());
+    </script>
+  </body>
+</html>

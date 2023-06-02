@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>
+      You have an array containing 10,12,14,2,10,5,2 numbers. Try finding number
+      22 from the array using 2 different array methods.
+    </h1>
+    <script>
+      const array = [10, 12, 14, 2, 10, 5, 2];
+      console.log("Using find function: ");
+      let founding = array.find(function (params) {
+        if (params == 22) {
+          return params;
+        }
+      });
+      console.log("Result: " + founding);
+      console.log("Using filter function: ");
+      let found = array.filter(function (params) {
+        if (params == 22) {
+          return params;
+        }
+      });
+      console.log("Result: " + found);
+    </script>
+  </body>
+</html>
