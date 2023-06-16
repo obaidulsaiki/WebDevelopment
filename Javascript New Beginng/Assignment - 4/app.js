@@ -75,7 +75,7 @@ passion.textContent = "Programming";
 numYear.textContent = 1;
 hobby.textContent = "Watching anime,playing games";
 characteristics.textContent = "Hardworking";
-ability.textContent = "develope my wroking skill";
+ability.textContent = "develope my working skill";
 goal.textContent = "learn and be a developer";
 //links linking
 fbLink.href = "https://www.facebook.com/obidul.saki/";
