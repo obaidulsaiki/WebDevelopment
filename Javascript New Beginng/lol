@@ -1,0 +1,17 @@
+// Your solution goes here.
+// Hints:
+// -> Handle the onsubmit function using attribute or js event listener.
+// -> Take the value of input, calculate the grade and update ui.
+// -> Maximum number can be 100
+// -> Clear the input field after value submission
+
+//forms elements
+let formSubmit =document.getElementById("iits-formSubmit");
+let inPut =document.getElementById("iits-inp");
+let aCount =document.getElementById("iits-a_count");//81-100
+let bpCount =document.getElementById("iits-bp_count");//71-80
+let bCount =document.getElementById("iits-b_count");//61-70
+let bmCount =document.getElementById("iits-bm_count");//51-60
+let cCount =document.getElementById("iits-c_count");//40-50
+let fpCount =document.getElementById("iits-f_count");//0-40
+//value
