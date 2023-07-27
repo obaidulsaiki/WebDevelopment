@@ -2,25 +2,6 @@
 // API -> https://64b2e33138e74e386d55b072.mockapi.io/api/hanover
 //menu objects
 const menuItems = [];
-//fetching data from api--------------------------------
-async function getMenus(params) {
-  const apiUrl = "https://64b2e33138e74e386d55b072.mockapi.io/api/hanover";
-  const option = {
-    method: "GET",
-  };
-  try {
-    let Response = await fetch(apiUrl, option);
-    let data = await Response.json();
-    data.forEach((current) => {
-      menuItems.push(current);
-      renderMenu();
-    });
-  } catch {
-    console.log("No Data found pls try again");
-  }
-}
-//------------------------------------------------------------
-getMenus();
 //Dom elements-----------------------------------------------------------------------
 //cart selection
 let cart = document.querySelector("#iits-cart");
