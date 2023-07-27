@@ -1,19 +1,26 @@
 // Your solution goes here
 // API -> https://64b2e33138e74e386d55b072.mockapi.io/api/hanover
-const apiUrl = "https://64b2e33138e74e386d55b072.mockapi.io/api/hanover";
-async function fetchAndDisplayItems() {
+//menu objects
+const menuItems = [];
+//fetching data from api--------------------------------
+async function getMenus(params) {
+  const apiUrl = "https://64b2e33138e74e386d55b072.mockapi.io/api/hanover";
+  const option = {
+    method: "GET",
+  };
   try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-  } catch (error) {
-    console.error("Error fetching data:", error);
+    let Response = await fetch(apiUrl, option);
+    let data = await Response.json();
+    data.forEach((current) => {
+      menuItems.push(current);
+      renderMenu();
+    });
+  } catch {
+    console.log("No Data found pls try again");
   }
 }
-function initApp() {
-  fetchAndDisplayItems();
-}
-document.addEventListener("DOMContentLoaded", initApp);
-
+//------------------------------------------------------------
+getMenus();
 //Dom elements-----------------------------------------------------------------------
 //cart selection
 let cart = document.querySelector("#iits-cart");
@@ -44,25 +51,68 @@ let addToCartBtn = document.querySelector("addToCartBtn");
 let AdminButton = document.querySelector("#iits-adminBtn");
 let developer = document.querySelector("#iits-developer");
 //----------------------------------------------------------------------------------
+
 //for search button
-function searchFunction(params) {
-  params.preventDefault(); // Prevents the form from submitting and refreshing the page
-  let searchValue = searchBox.value.toLowerCase().trim();
-  allItems.forEach((item) => {
-    if (
-      item
-        .querySelector(".card-title")
-        .textContent.trim()
-        .toLowerCase()
-        .includes(searchValue)
-    ) {
-      item.style.display = "block";
-    } else {
-      item.style.display = "none";
+let searchValue = searchBox.value.toLowerCase().trim();
+
+searchForm.addEventListener("submit", renderMenu);
+//for taking innerhtml and menu object -------------------------------
+function menuItemToShow(params) {
+  return `<div class="item col-md-6 col-lg-4 p-3" data-category="${params.typeItem}",
+}">
+  <div class="card">
+    <div class="img-container">
+      <img
+        src="${params.thumbnail}"
+        alt="${params.typeItem}"
+      />
+      <span class="category-pill">${params.cardType}</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">${params.name}</h5>
+      <p class="card-text">
+        ${params.desc}
+      </p>
+      <button class="addToCartBtn btn w-100">Add to cart</button>
+    </div>
+  </div>
+</div>`;
+}
+function renderMenu() {
+  allItems.innerHTML = "";
+  menuItems.forEach((item) => {
+    if (item.name.toLowerCase().includes(searchValue)) {
+      items.innerHTML += menuItemToShow(item);
     }
   });
 }
-searchForm.addEventListener("submit", searchFunction);
+/* {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }*/
+//fetching data from api--------------------------------
+async function getMenus() {
+  allItems.innerHTML = "loading...";
+  const apiUrl = "https://64b2e33138e74e386d55b072.mockapi.io/api/hanover";
+  const option = {
+    method: "GET",
+  };
+  try {
+    let Response = await fetch(apiUrl, option);
+    let data = await Response.json();
+    data.forEach((current) => {
+      menuItems.push(current);
+      //console.log(menuItems);
+      renderMenu();
+    });
+  } catch {
+    console.log("No Data found pls try again");
+  }
+}
+getMenus();
+
+//-------------------------------------------------------------------
 //for admin button-----------------------------------------------------
 function hideAdmin(params) {
   adminSection.style.display = "none";
@@ -79,5 +129,6 @@ function showAdmin(params) {
 AdminButton.addEventListener("click", showAdmin);
 //------------------------------------------------------------------------
 //filtering ---------------------------------------------------------------
+function filterFunction(params) {}
 
 //------------------------------------------------------------------------
