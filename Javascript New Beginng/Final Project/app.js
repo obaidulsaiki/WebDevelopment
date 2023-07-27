@@ -34,9 +34,14 @@ let developer = document.querySelector("#iits-developer");
 //----------------------------------------------------------------------------------
 
 //for search button
-let searchValue = searchBox.value.toLowerCase().trim();
+let searchValue = "";
 
-searchForm.addEventListener("submit", renderMenu);
+searchForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  searchValue = searchBox.value.toLowerCase().trim();
+  renderMenu();
+});
+
 //for taking innerhtml and menu object -------------------------------
 function menuItemToShow(params) {
   return `<div class="item col-md-6 col-lg-4 p-3" data-category="${params.typeItem}",
@@ -62,8 +67,8 @@ function menuItemToShow(params) {
 function renderMenu() {
   allItems.innerHTML = "";
   menuItems.forEach((item) => {
-    if (item.name.toLowerCase().includes(searchValue)) {
-      items.innerHTML += menuItemToShow(item);
+    if(item.name.toLowerCase().includes(searchValue)){
+          items.innerHTML += menuItemToShow(item);
     }
   });
 }
