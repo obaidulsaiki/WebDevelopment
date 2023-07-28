@@ -156,7 +156,4 @@ searchForm.addEventListener("submit", function (event) {
 // let toggle = document.querySelector("#all_toggle");
 // let coffee = document.querySelector("#coffee_toggle");
 // let burger = document.querySelector("#burger_toggle");
-// toggle.addEventListener("click", function (event) {
-//   event.preventDefault();
-// });
 //-------------------------------------------------------------------------------------
