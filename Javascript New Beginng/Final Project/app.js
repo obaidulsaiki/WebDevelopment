@@ -103,8 +103,6 @@ function nameChange(params) {
   developer.innerHTML = "Developed by Obaidul Haque";
 }
 //------------------------------------------------------------------------
-//filtering ---------------------------------------------------------------
-function filterFunction(params) {}
 
 //------------------------------------------------------------------------
 //Add form information---------------------------------------------------
@@ -112,6 +110,10 @@ addNewForm.addEventListener("submit", function (event) {
   event.preventDefault();
   let lastObject = menuItems[menuItems.length - 1];
   let lastId = lastObject.id | 0;
+  if (typeItem.value == invalid) {
+    alert("Please select a type");
+    return;
+  }
   let newObject = {
     id: lastId + 1,
     name: Name.value,
@@ -120,13 +122,18 @@ addNewForm.addEventListener("submit", function (event) {
     type: typeItem.value,
   };
   menuItems.push(newObject);
+  Name.value = "";
+  pic.value = "";
+  desc.value = "";
+  typeItem.value = "";
   renderMenu();
 });
 //------------------------------------------------------------------------
 //cart number increement decrement-----------------------------------------------
 
-//for search button --------------------------------------------------------------------
+//for search button functionality--------------------------------------------------------------------
 let searchValue = "";
+let notFoundMesseg = false;
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
   searchValue = searchBox.value;
@@ -135,7 +142,21 @@ searchForm.addEventListener("submit", function (event) {
   menuItems.forEach(function (params) {
     if (params.name.toLowerCase().includes(searchValue.toLowerCase())) {
       items.innerHTML += menuItemToShow(params);
+    } else {
+      notFoundMesseg = true;
     }
   });
+  if (notFoundMesseg) {
+    items.innerHTML = "Not Found";
+    notFoundMesseg = false;
+  }
 });
 //--------------------------------------------------------------------------------------
+//filtering section toggle---------------------------------------------------------------------
+// let toggle = document.querySelector("#all_toggle");
+// let coffee = document.querySelector("#coffee_toggle");
+// let burger = document.querySelector("#burger_toggle");
+// toggle.addEventListener("click", function (event) {
+//   event.preventDefault();
+// });
+//-------------------------------------------------------------------------------------
