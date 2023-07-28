@@ -17,7 +17,7 @@ let adminSection = document.querySelector("#iits-adminSection");
 let cancelBtn = document.querySelector("#iits-cancelBtn");
 let addNewForm = document.querySelector("#iits-addNewForm");
 //input div
-let name = document.querySelector("#name");
+let Name = document.querySelector("#name");
 let pic = document.querySelector("#pic");
 let desc = document.querySelector("#desc");
 let typeItem = document.querySelector("#typeItem");
@@ -27,7 +27,7 @@ let coffee = document.querySelector("#coffee_toggle");
 let burger = document.querySelector("#burger_toggle");
 //All items
 let items = document.querySelector("#iits-items");
-const allItems = items.querySelectorAll(".items");
+const allItems = items.querySelectorAll(".item");
 let addToCartBtn = document.querySelector("addToCartBtn");
 let AdminButton = document.querySelector("#iits-adminBtn");
 let developer = document.querySelector("#iits-developer");
@@ -39,8 +39,23 @@ searchValue = searchBox.value.toLowerCase().trim();
 
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
+  //show searched item
+  if (
+    items.querySelectorAll("card-title").textContent.toLowerCase().trim() ==
+    searchValue
+  ) {
+    activeShowitems();
+  } else {
+    HideShowitems();
+  }
 });
-
+function activeShowitems() {
+  items.style.display = "col-md-6 col-lg-4 p-3 block";
+}
+function HideShowitems() {
+  items.style.display = "none";
+}
+activeShowitems();
 //for taking innerhtml and menu object -------------------------------
 function menuItemToShow(params) {
   return `<div class="item col-md-6 col-lg-4 p-3" data-category="${params.type}",
@@ -117,15 +132,14 @@ function filterFunction(params) {}
 //Add form information---------------------------------------------------
 addNewForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  let name = document.querySelector("#name").value;
-  let pic = document.querySelector("#pic").value;
-  let desc = document.querySelector("#desc").value;
-  let typeItem = document.querySelector("#typeItem").value;
+  let lastObject = menuItems[menuItems.length - 1];
+  let lastId = lastObject.id | 0;
   let newObject = {
-    name: name,
-    url: pic,
-    desc: desc,
-    type: typeItem,
+    id: lastId + 1,
+    name: Name.value,
+    url: pic.value,
+    desc: desc.value,
+    type: typeItem.value,
   };
   menuItems.push(newObject);
   renderMenu();
