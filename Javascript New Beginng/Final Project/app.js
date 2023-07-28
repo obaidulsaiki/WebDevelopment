@@ -39,7 +39,7 @@ let searchValue = "";
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
   searchValue = searchBox.value.toLowerCase().trim();
-  renderMenu();
+  // renderMenu();
 });
 
 //for taking innerhtml and menu object -------------------------------
@@ -72,11 +72,6 @@ function renderMenu() {
     }
   });
 }
-/* {
-      item.style.display = "block";
-    } else {
-      item.style.display = "none";
-    }*/
 //fetching data from api--------------------------------
 async function getMenus() {
   allItems.innerHTML = "loading...";
@@ -90,11 +85,11 @@ async function getMenus() {
     data.forEach((current) => {
       menuItems.push(current);
       //console.log(menuItems);
-      renderMenu();
     });
   } catch {
     console.log("No Data found pls try again");
   }
+  renderMenu();
 }
 getMenus();
 
