@@ -7,6 +7,7 @@ const menuItems = [];
 let cart = document.querySelector("#iits-cart");
 let cartCounter = document.querySelector("#iits-cart_counter");
 let cartDecrement = document.querySelector("#iits-cart_dec");
+let addToCartBtn = document.querySelectorAll(".addToCartBtn");
 //search
 let searchSection = document.querySelector("#searchSection");
 const searchForm = document.querySelector("#searchForm");
@@ -28,34 +29,10 @@ let burger = document.querySelector("#burger_toggle");
 //All items
 let items = document.querySelector("#iits-items");
 const allItems = items.querySelectorAll(".item");
-let addToCartBtn = document.querySelector("addToCartBtn");
 let AdminButton = document.querySelector("#iits-adminBtn");
 let developer = document.querySelector("#iits-developer");
 //----------------------------------------------------------------------------------
 
-//for search button
-let searchValue = "";
-searchValue = searchBox.value.toLowerCase().trim();
-
-searchForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  //show searched item
-  if (
-    items.querySelectorAll("card-title").textContent.toLowerCase().trim() ==
-    searchValue
-  ) {
-    activeShowitems();
-  } else {
-    HideShowitems();
-  }
-});
-function activeShowitems() {
-  items.style.display = "col-md-6 col-lg-4 p-3 block";
-}
-function HideShowitems() {
-  items.style.display = "none";
-}
-activeShowitems();
 //for taking innerhtml and menu object -------------------------------
 function menuItemToShow(params) {
   return `<div class="item col-md-6 col-lg-4 p-3" data-category="${params.type}",
@@ -79,14 +56,15 @@ function menuItemToShow(params) {
 </div>`;
 }
 function renderMenu() {
-  allItems.innerHTML = "";
+  items.innerHTML = "";
   menuItems.forEach((item) => {
     items.innerHTML += menuItemToShow(item);
   });
 }
 //fetching data from api--------------------------------
+//fetching data from api--------------------------------
 async function getMenus() {
-  allItems.innerHTML = "loading...";
+  items.innerHTML = "loading...";
   const apiUrl = "https://64b2e33138e74e386d55b072.mockapi.io/api/hanover";
   const option = {
     method: "GET",
@@ -145,3 +123,38 @@ addNewForm.addEventListener("submit", function (event) {
   renderMenu();
 });
 //------------------------------------------------------------------------
+//cart number increement decrement-----------------------------------------------
+let cartCount = 0;
+
+// addToCartBtn.addEventListener("submit", function (event) {
+//   cartCount++;
+//   console.log(cartCount);
+//   CounterUpdate(cartCount);
+// });
+// cartDecrement.addEventListener("click", function (event) {
+//   if (cartCount > 0) {
+//     cartCount--;
+//     console.log(cartCount);
+//     CounterUpdate(cartCount);
+//   }
+// });
+
+// function CounterUpdate(params) {
+//   if (!isNaN(params)) {
+//     cartCounter.value = params;
+//   }
+// }
+//for search button --------------------------------------------------------------------
+let searchValue = "";
+searchForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  searchValue = searchBox.value;
+  // console.log(searchValue);
+  items.innerHTML = "";
+  menuItems.forEach(function (params) {
+    if (params.name.toLowerCase().includes(searchValue.toLowerCase())) {
+      items.innerHTML += menuItemToShow(params);
+    }
+  });
+});
+//--------------------------------------------------------------------------------------
