@@ -124,26 +124,7 @@ addNewForm.addEventListener("submit", function (event) {
 });
 //------------------------------------------------------------------------
 //cart number increement decrement-----------------------------------------------
-let cartCount = 0;
 
-// addToCartBtn.addEventListener("submit", function (event) {
-//   cartCount++;
-//   console.log(cartCount);
-//   CounterUpdate(cartCount);
-// });
-// cartDecrement.addEventListener("click", function (event) {
-//   if (cartCount > 0) {
-//     cartCount--;
-//     console.log(cartCount);
-//     CounterUpdate(cartCount);
-//   }
-// });
-
-// function CounterUpdate(params) {
-//   if (!isNaN(params)) {
-//     cartCounter.value = params;
-//   }
-// }
 //for search button --------------------------------------------------------------------
 let searchValue = "";
 searchForm.addEventListener("submit", function (event) {
