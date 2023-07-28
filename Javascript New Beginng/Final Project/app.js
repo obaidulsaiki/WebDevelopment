@@ -44,15 +44,15 @@ searchForm.addEventListener("submit", function (event) {
 
 //for taking innerhtml and menu object -------------------------------
 function menuItemToShow(params) {
-  return `<div class="item col-md-6 col-lg-4 p-3" data-category="${params.typeItem}",
+  return `<div class="item col-md-6 col-lg-4 p-3" data-category="${params.type}",
 }">
   <div class="card">
     <div class="img-container">
       <img
-        src="${params.thumbnail}"
-        alt="${params.typeItem}"
+        src="${params.url}"
+        alt="${params.type}"
       />
-      <span class="category-pill">${params.cardType}</span>
+      <span class="category-pill">${params.type}</span>
     </div>
     <div class="card-body">
       <h5 class="card-title">${params.name}</h5>
@@ -67,8 +67,8 @@ function menuItemToShow(params) {
 function renderMenu() {
   allItems.innerHTML = "";
   menuItems.forEach((item) => {
-    if(item.name.toLowerCase().includes(searchValue)){
-          items.innerHTML += menuItemToShow(item);
+    if (item.name.toLowerCase().includes(searchValue)) {
+      items.innerHTML += menuItemToShow(item);
     }
   });
 }
@@ -109,10 +109,15 @@ function showAdmin(params) {
   let password = prompt("Enter your password: ");
   if (name === "iits" && password === "23") {
     adminSection.style.display = "block";
+    nameChange();
   }
   cancelBtn.addEventListener("click", hideAdmin);
 }
 AdminButton.addEventListener("click", showAdmin);
+//Name change--------------------------------------------------------------
+function nameChange(params) {
+  developer.innerHTML = "Developed by Obaidul Haque";
+}
 //------------------------------------------------------------------------
 //filtering ---------------------------------------------------------------
 function filterFunction(params) {}
