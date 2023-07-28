@@ -35,11 +35,10 @@ let developer = document.querySelector("#iits-developer");
 
 //for search button
 let searchValue = "";
+searchValue = searchBox.value.toLowerCase().trim();
 
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  searchValue = searchBox.value.toLowerCase().trim();
-  // renderMenu();
 });
 
 //for taking innerhtml and menu object -------------------------------
@@ -67,9 +66,7 @@ function menuItemToShow(params) {
 function renderMenu() {
   allItems.innerHTML = "";
   menuItems.forEach((item) => {
-    if (item.name.toLowerCase().includes(searchValue)) {
-      items.innerHTML += menuItemToShow(item);
-    }
+    items.innerHTML += menuItemToShow(item);
   });
 }
 //fetching data from api--------------------------------
@@ -92,7 +89,6 @@ async function getMenus() {
   renderMenu();
 }
 getMenus();
-
 //-------------------------------------------------------------------
 //for admin button-----------------------------------------------------
 function hideAdmin(params) {
@@ -117,4 +113,21 @@ function nameChange(params) {
 //filtering ---------------------------------------------------------------
 function filterFunction(params) {}
 
+//------------------------------------------------------------------------
+//Add form information---------------------------------------------------
+addNewForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let name = document.querySelector("#name").value;
+  let pic = document.querySelector("#pic").value;
+  let desc = document.querySelector("#desc").value;
+  let typeItem = document.querySelector("#typeItem").value;
+  let newObject = {
+    name: name,
+    url: pic,
+    desc: desc,
+    type: typeItem,
+  };
+  menuItems.push(newObject);
+  renderMenu();
+});
 //------------------------------------------------------------------------
