@@ -2,35 +2,35 @@
 // API -> https://64b2e33138e74e386d55b072.mockapi.io/api/hanover
 //menu objects
 const menuItems = [];
-//Dom elements-----------------------------------------------------------------------
-//cart selection
+//Dom elements------------------------------------------------------------------
+//---------------------cart selection--------------------------------------------
 let cart = document.querySelector("#iits-cart");
 let cartCounter = document.querySelector("#iits-cart_counter");
 let cartDecrement = document.querySelector("#iits-cart_dec");
-//search
+//------------------------------search-------------------------------------------
 let searchSection = document.querySelector("#searchSection");
 const searchForm = document.querySelector("#searchForm");
 let searchBox = document.querySelector("#iits-searchBox");
 let searchBtn = document.querySelector("#btn");
-//admin section
+//----------------------admin section-------------------------------------------
 let adminSection = document.querySelector("#iits-adminSection");
 let cancelBtn = document.querySelector("#iits-cancelBtn");
 let addNewForm = document.querySelector("#iits-addNewForm");
-//input div
+//-----------------------------input div----------------------------------------
 let Name = document.querySelector("#name");
 let pic = document.querySelector("#pic");
 let desc = document.querySelector("#desc");
 let typeItem = document.querySelector("#typeItem");
-//filtering section
+//----------------------------filtering section---------------------------------
 let toggle = document.querySelector("#all_toggle");
 let coffee = document.querySelector("#coffee_toggle");
 let burger = document.querySelector("#burger_toggle");
-//All items
+//--------------------All items-------------------------------------------------
 let items = document.querySelector("#iits-items");
 const allItems = items.querySelectorAll(".item");
 let AdminButton = document.querySelector("#iits-adminBtn");
 let developer = document.querySelector("#iits-developer");
-//----------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 //for taking innerhtml and menu object -------------------------------
 function menuItemToShow(params) {
@@ -167,6 +167,7 @@ function searchCheck(lolvox) {
 searchCheck("All");
 //--------------------------------------------------------------------------------------
 //filtering section toggle---------------------------------------------------------------------
+//worked when its depending on both search and filter pls press the button
 toggle.addEventListener("click", function () {
   renderMenu();
   searchCheck("All");
