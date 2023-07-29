@@ -7,7 +7,6 @@ const menuItems = [];
 let cart = document.querySelector("#iits-cart");
 let cartCounter = document.querySelector("#iits-cart_counter");
 let cartDecrement = document.querySelector("#iits-cart_dec");
-let addToCartBtn = document.querySelectorAll(".addToCartBtn");
 //search
 let searchSection = document.querySelector("#searchSection");
 const searchForm = document.querySelector("#searchForm");
@@ -130,28 +129,53 @@ addNewForm.addEventListener("submit", function (event) {
 });
 //------------------------------------------------------------------------
 //cart number increement decrement-----------------------------------------------
-
+let addToCartBtn = document.querySelectorAll(".addToCartBtn");
+addToCartBtn.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    cartCounter.textContent = parseInt(cartCounter.textContent) + 1;
+  });
+});
 //for search button functionality--------------------------------------------------------------------
-let searchValue = "";
-let notFoundMesseg = 0;
-searchForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  searchValue = searchBox.value;
-  // console.log(searchValue);
-  items.innerHTML = "";
-  menuItems.forEach(function (params) {
-    if (params.name.toLowerCase().includes(searchValue.toLowerCase())) {
-      items.innerHTML += menuItemToShow(params);
-      notFoundMesseg++;
+function searchCheck(lolvox) {
+  let searchValue = "";
+  let notFoundMesseg = 0;
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    searchValue = searchBox.value;
+    // console.log(searchValue);
+    items.innerHTML = "";
+    menuItems.forEach(function (params) {
+      if (
+        params.name.toLowerCase().includes(searchValue.toLowerCase()) &&
+        lolvox == "All"
+      ) {
+        items.innerHTML += menuItemToShow(params);
+        notFoundMesseg++;
+      } else if (
+        params.name.toLowerCase().includes(searchValue.toLowerCase()) &&
+        lolvox == params.type
+      ) {
+        items.innerHTML += menuItemToShow(params);
+        notFoundMesseg++;
+      }
+    });
+    if (notFoundMesseg == 0) {
+      items.innerHTML = "No item found";
     }
   });
-  if (notFoundMesseg == 0) {
-    items.innerHTML = "No item found";
-  }
-});
-//--------------------------------------------------------------------------------------
+  //---
+}
+searchCheck("All");
+//-----------------------------------------------------------------------------------
 //filtering section toggle---------------------------------------------------------------------
-// let toggle = document.querySelector("#all_toggle");
-// let coffee = document.querySelector("#coffee_toggle");
-// let burger = document.querySelector("#burger_toggle");
-
+function activeCoffee() {}
+toggle.addEventListener("click", function () {
+  renderMenu();
+  searchCheck("All");
+});
+coffee.addEventListener("click", function () {
+  searchCheck("coffee");
+});
+burger.addEventListener("click", function () {
+  searchCheck("burger");
+});
