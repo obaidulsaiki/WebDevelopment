@@ -133,7 +133,7 @@ addNewForm.addEventListener("submit", function (event) {
 
 //for search button functionality--------------------------------------------------------------------
 let searchValue = "";
-let notFoundMesseg = false;
+let notFoundMesseg = 0;
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
   searchValue = searchBox.value;
@@ -142,13 +142,11 @@ searchForm.addEventListener("submit", function (event) {
   menuItems.forEach(function (params) {
     if (params.name.toLowerCase().includes(searchValue.toLowerCase())) {
       items.innerHTML += menuItemToShow(params);
-    } else {
-      notFoundMesseg = true;
+      notFoundMesseg++;
     }
   });
-  if (notFoundMesseg) {
-    items.innerHTML = "Not Found";
-    notFoundMesseg = false;
+  if (notFoundMesseg == 0) {
+    items.innerHTML = "No item found";
   }
 });
 //--------------------------------------------------------------------------------------
@@ -156,4 +154,4 @@ searchForm.addEventListener("submit", function (event) {
 // let toggle = document.querySelector("#all_toggle");
 // let coffee = document.querySelector("#coffee_toggle");
 // let burger = document.querySelector("#burger_toggle");
-//-------------------------------------------------------------------------------------
+
