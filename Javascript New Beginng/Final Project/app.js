@@ -5,8 +5,9 @@ const menuItems = [];
 //Dom elements------------------------------------------------------------------
 //---------------------cart selection--------------------------------------------
 let cart = document.querySelector("#iits-cart");
-let cartCounter = document.querySelector("#iits-cart_counter");
-let cartDecrement = document.querySelector("#iits-cart_dec");
+// let cartCounter = document.querySelector("#iits-cart_counter");
+// let addToCartBtn = document.querySelectorAll(".addToCartBtn");
+//let cartDecrement = document.querySelector("#cart_dec");
 //------------------------------search-------------------------------------------
 let searchSection = document.querySelector("#searchSection");
 const searchForm = document.querySelector("#searchForm");
@@ -59,6 +60,7 @@ function renderMenu() {
   menuItems.forEach((item) => {
     items.innerHTML += menuItemToShow(item);
   });
+  incdinc();
 }
 //fetching data from api--------------------------------
 //fetching data from api--------------------------------
@@ -129,12 +131,21 @@ addNewForm.addEventListener("submit", function (event) {
 });
 //------------------------------------------------------------------------
 //cart number increement decrement-----------------------------------------------
-let addToCartBtn = document.querySelectorAll(".addToCartBtn");
-addToCartBtn.forEach((btn) => {
-  btn.addEventListener("click", function () {
-    cartCounter.textContent = parseInt(cartCounter.textContent) + 1;
+function incdinc() {
+  let cartCounter = document.querySelector("#iits-cart_counter");
+  let addToCartBtn = document.querySelectorAll(".addToCartBtn");
+  addToCartBtn.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      cartCounter.textContent = parseInt(cartCounter.textContent) + 1;
+    });
   });
-});
+  let cartDecrement = document.querySelector("#cart_dec");
+  cartDecrement.addEventListener("click", function () {
+    if (parseInt(cartCounter.textContent) > 0) {
+      cartCounter.textContent = parseInt(cartCounter.textContent) - 1;
+    }
+  });
+}
 //for search button functionality--------------------------------------------------------------------
 function searchCheck(lolvox) {
   let searchValue = "";
@@ -178,8 +189,8 @@ coffee.addEventListener("click", function () {
     if (params.type == "coffee") {
       items.innerHTML += menuItemToShow(params);
     }
+    searchCheck("coffee");
   });
-  searchCheck("coffee");
 });
 burger.addEventListener("click", function () {
   items.innerHTML = "";
