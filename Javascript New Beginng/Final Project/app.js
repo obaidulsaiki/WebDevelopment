@@ -163,19 +163,29 @@ function searchCheck(lolvox) {
       items.innerHTML = "No item found";
     }
   });
-  //---
 }
 searchCheck("All");
-//-----------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
 //filtering section toggle---------------------------------------------------------------------
-function activeCoffee() {}
 toggle.addEventListener("click", function () {
   renderMenu();
   searchCheck("All");
 });
 coffee.addEventListener("click", function () {
+  items.innerHTML = "";
+  menuItems.forEach(function (params) {
+    if (params.type == "coffee") {
+      items.innerHTML += menuItemToShow(params);
+    }
+  });
   searchCheck("coffee");
 });
 burger.addEventListener("click", function () {
+  items.innerHTML = "";
+  menuItems.forEach(function (params) {
+    if (params.type == "burger") {
+      items.innerHTML += menuItemToShow(params);
+    }
+  });
   searchCheck("burger");
 });
